@@ -1,0 +1,361 @@
+@charset "UTF-8";
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header .logo {
+  font-size: 24px;
+  font-weight: bold;
+  animation: rotate 5s infinite linear;
+}
+header .logo:hover {
+  animation: rotate 2s infinite linear;
+}
+header nav ul {
+  list-style: none;
+  display: flex;
+}
+header nav ul li {
+  margin-left: 20px;
+}
+header nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+header nav ul li a:hover {
+  text-decoration: underline;
+}
+header nav ul li .dropdown {
+  display: none;
+  position: absolute;
+  background-color: #444;
+  padding: 10px;
+}
+header nav ul li .dropdown a {
+  display: block;
+  padding: 5px 0;
+}
+header nav ul li:hover .dropdown {
+  display: block;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.card {
+  width: 200px;
+  height: 300px;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  position: relative;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  width: 100%;
+}
+.card:hover {
+  transform: scale(1.05);
+}
+.card img {
+  width: 100%;
+  height: 60%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.card .info {
+  padding: 10px;
+}
+.card .info h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #000;
+}
+.card .info .price {
+  font-size: 16px;
+  margin: 10px 0;
+  color: #2196f3;
+}
+.card body.dark .card {
+  background-color: #444;
+  border-color: #666;
+}
+.card body.dark .card .info h3 {
+  color: #fff;
+}
+.card body.dark .card .info .price {
+  color: #4caf50;
+}
+.card.outlet {
+  background-color: #f0f0f0;
+  border: 2px solid #000000;
+}
+.card.outlet .badge {
+  background-color: #000000;
+  color: #fff;
+  padding: 5px 10px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border-radius: 5px;
+  font-size: 12px;
+}
+.card.outlet .btn-comprar {
+  background-color: #000000;
+}
+.card.nueva-temporada {
+  background-color: #e0f7fa;
+}
+.card.nueva-temporada .btn-comprar {
+  background-color: #2196f3;
+}
+.card.rebajas {
+  background-color: #ffebee;
+}
+.card.rebajas .btn-comprar {
+  background-color: #2196f3;
+}
+.card.oferta {
+  background-color: #fff3e0;
+  border: 2px dotted brown;
+}
+.card.oferta .price {
+  color: red;
+  font-weight: bold;
+}
+.card.oferta .btn-comprar {
+  background-color: #f44336;
+}
+.card.normal {
+  background-color: #ffffff;
+}
+.card.normal .btn-comprar {
+  background-color: #2196f3;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 480px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+body {
+  background-color: #ffffff;
+  color: #000000;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark {
+  background-color: #333333;
+  color: #ffffff;
+}
+body.dark .card {
+  background-color: #444;
+  border-color: #666;
+}
+body.dark .card .info h3 {
+  color: #fff;
+}
+body.dark .card .info .price {
+  color: #4caf50;
+}
+body.dark .card .info .btn-comprar {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.theme-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px;
+  background-color: #2196f3;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.shipping-banner {
+  color: #000000;
+  padding: 10px 0;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.card {
+  width: 200px;
+  height: 300px;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  position: relative;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  width: 100%;
+}
+.card:hover {
+  transform: scale(1.05);
+}
+.card img {
+  width: 100%;
+  height: 60%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.card .info {
+  padding: 10px;
+}
+.card .info h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #000;
+}
+.card .info .price {
+  font-size: 16px;
+  margin: 10px 0;
+  color: #2196f3;
+}
+
+/* Estilos para la pantalla de detalles */
+.product-details {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  position: relative;
+}
+
+.details-image {
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 10px;
+}
+
+.details-name {
+  font-size: 24px;
+  margin: 20px 0 10px;
+  color: #000; /* Texto negro en modo claro */
+}
+
+.details-description {
+  font-size: 16px;
+  color: #555; /* Texto gris en modo claro */
+  margin-bottom: 20px;
+}
+
+.details-price {
+  font-size: 20px;
+  font-weight: bold;
+  color: #2196f3; /* Precio azul en modo claro */
+}
+
+.back-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #2196f3;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.back-button:hover {
+  background-color: #1976d2;
+}
+
+/* Estilos para la flecha de regreso */
+.back-arrow {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 24px;
+  color: #2196f3;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.back-arrow:hover {
+  color: #1976d2;
+}
+
+/* Estilos para el modo oscuro */
+body.dark {
+  background-color: #333; /* Fondo oscuro */
+  color: #fff; /* Texto blanco */
+}
+
+body.dark .product-details {
+  background-color: #444; /* Fondo oscuro para el contenedor de detalles */
+  border: 1px solid #666; /* Borde más claro */
+}
+
+body.dark .details-name {
+  color: #fff; /* Texto blanco en modo oscuro */
+}
+
+body.dark .details-description {
+  color: #ccc; /* Texto gris claro en modo oscuro */
+}
+
+body.dark .details-price {
+  color: #4caf50; /* Precio verde en modo oscuro */
+}
+
+body.dark .back-button {
+  background-color: #4caf50; /* Botón verde en modo oscuro */
+  color: #fff;
+}
+
+body.dark .back-button:hover {
+  background-color: #45a049; /* Verde más oscuro al pasar el mouse */
+}
+
+body.dark .back-arrow {
+  color: #4caf50; /* Flecha verde en modo oscuro */
+}
+
+body.dark .back-arrow:hover {
+  color: #45a049; /* Verde más oscuro al pasar el mouse */
+}/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Tienda con SASS</title>
+  <link rel="stylesheet" href="scss/styles.css">
+</head>
+<body>
+  <div class="shipping-banner">
+    <p>Envíos gratuitos para pedidos superiores a 30€</p>
+  </div>
+
+  <header>
+    <div class="logo">Tienda</div>
+    <nav>
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li>
+          <a href="#">Categorías</a>
+          <ul class="dropdown">
+            <li><a href="#" data-category="all">Todos</a></li>
+            <li><a href="#" data-category="outlet">Outlet</a></li>
+            <li><a href="#" data-category="nueva-temporada">Nueva Temporada</a></li>
+            <li><a href="#" data-category="rebajas">Rebajas</a></li>
+            <li><a href="#" data-category="oferta">Oferta</a></li>
+            <li><a href="#" data-category="normal">Normal</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Contenedor principal -->
+  <main class="container">
+    <h1>Nuestros Productos</h1>
+    <div class="product-grid">
+      <!-- Los productos se insertarán aquí dinámicamente -->
+    </div>
+  </main>
+
+  <!-- Botón para cambiar tema -->
+  <button class="theme-toggle">Cambiar Tema</button>
+
+  <footer>
+    <p>&copy; 2025 MiTienda. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    // Función para generar productos
+    function generateProducts() {
+      const categories = ['outlet', 'nueva-temporada', 'rebajas', 'oferta', 'normal'];
+      const products = [];
+
+      for (let i = 1; i <= 250; i++) { // 50 productos por categoría (5 categorías)
+        const category = categories[Math.floor((i - 1) / 50)]; // Asigna categorías en bloques de 50
+        const product = {
+          id: i,
+          name: `Producto ${i}`,
+          description: `Descripción del producto ${i}. Este es un producto de la categoría ${category}.`,
+          price: parseFloat((Math.random() * 50 + 5).toFixed(2)), // Precio aleatorio entre 5 y 55
+          category: category,
+          image: "images/sm_5ad31a92cd6ca.jpg" // Imagen de ejemplo
+        };
+        products.push(product);
+      }
+
+      return products;
+    }
+
+    // JSON con los productos generados
+    const products = generateProducts();
+
+    const productGrid = document.querySelector('.product-grid');
+
+    // Función para mostrar productos
+    function displayProducts(filteredProducts) {
+      productGrid.innerHTML = ''; // Limpiar el contenedor
+      filteredProducts.forEach(product => {
+        const card = document.createElement('div');
+        card.className = `card ${product.category}`;
+        
+        card.innerHTML = `
+          <img src="${product.image}" alt="${product.name}">
+          <div class="info">
+            <h3>${product.name}</h3>
+            <p class="price">€${product.price.toFixed(2)}</p>
+          </div>
+        `;
+
+        // Añadir evento de clic a la tarjeta
+        card.addEventListener('click', () => {
+          // Redirigir a la página de detalles con los datos del producto
+          window.location.href = `product-details.html?id=${product.id}&name=${encodeURIComponent(product.name)}&description=${encodeURIComponent(product.description)}&price=${product.price}&image=${encodeURIComponent(product.image)}`;
+        });
+
+        productGrid.appendChild(card);
+      });
+    }
+
+    // Mostrar todos los productos al cargar la página
+    displayProducts(products);
+
+    // Filtrar productos por categoría
+    document.querySelectorAll('.dropdown a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const category = e.target.getAttribute('data-category');
+        const filteredProducts = category === 'all' ? products : products.filter(product => product.category === category);
+        displayProducts(filteredProducts);
+      });
+    });
+
+    // Cambiar tema
+    document.querySelector('.theme-toggle').addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+    });
+  </script>
+</body>
+</html>

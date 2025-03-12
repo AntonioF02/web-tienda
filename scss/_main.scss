@@ -1,0 +1,109 @@
+.card {
+  @include card-base;
+  position: relative;
+  background-color: $color-normal;
+  border: 1px solid #ccc;
+  width: 100%;
+
+  img {
+    width: 100%;
+    height: 60%;
+    object-fit: cover;
+  }
+
+  .info {
+    padding: 10px;
+
+    h3 {
+      margin: 0;
+      font-size: 18px;
+      color: #000; // Texto negro en modo claro
+    }
+
+    .price {
+      font-size: 16px;
+      margin: 10px 0;
+      color: #2196f3; // Precio azul
+    }
+  }
+
+
+
+
+
+  // Estilos para las tarjetas en modo oscuro
+  body.dark {
+    .card {
+      background-color: #444; // Fondo oscuro
+      border-color: #666; // Borde más claro
+  
+      .info {
+        h3 {
+          color: #fff; // Texto blanco en modo oscuro
+        }
+  
+        .price {
+          color: #4caf50; // Precio verde en modo oscuro
+        }
+      }
+    }
+  }
+    // Estilos específicos por categoría
+  &.outlet {
+    background-color: $color-outlet;
+    border: 2px solid $btn-outlet;
+
+    .badge {
+      background-color: $btn-outlet;
+      color: #fff;
+      padding: 5px 10px;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      border-radius: 5px;
+      font-size: 12px;
+    }
+
+    .btn-comprar {
+      background-color: $btn-outlet;
+    }
+  }
+
+  &.nueva-temporada {
+    background-color: $color-nueva-temporada;
+
+    .btn-comprar {
+      background-color: $btn-nueva-temporada;
+    }
+  }
+
+  &.rebajas {
+    background-color: $color-rebajas;
+
+    .btn-comprar {
+      background-color: $btn-rebajas;
+    }
+  }
+
+  &.oferta {
+    background-color: $color-oferta;
+    border: 2px dotted brown;
+
+    .price {
+      color: red;
+      font-weight: bold;
+    }
+
+    .btn-comprar {
+      background-color: $btn-oferta;
+    }
+  }
+
+  &.normal {
+    background-color: $color-normal;
+
+    .btn-comprar {
+      background-color: $btn-normal;
+    }
+  }
+}

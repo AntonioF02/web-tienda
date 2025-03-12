@@ -1,0 +1,26 @@
+// Colores base
+$color-outlet: #f0f0f0;
+$color-nueva-temporada: #e0f7fa;
+$color-rebajas: #ffebee;
+$color-oferta: #fff3e0;
+$color-normal: #ffffff;
+
+$btn-outlet: #000000;
+$btn-nueva-temporada: #2196f3;
+$btn-rebajas: #2196f3;
+$btn-oferta: #f44336;
+$btn-normal: #2196f3;
+
+$card-width: 200px;
+$card-height: 300px;
+
+$theme-colors: (
+  light: (
+    background: #ffffff,
+    text: #000000,
+  ),
+  dark: (
+    background: #333333,
+    text: #ffffff,
+  ),
+);

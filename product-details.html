@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Detalles del Producto</title>
+  <link rel="stylesheet" href="scss/styles.css">
+
+</head>
+<body>
+  <!-- Banner de envíos -->
+  <div class="shipping-banner">
+    <p>Envíos gratuitos para pedidos superiores a 30€</p>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">Tienda</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li>
+          <a href="#">Categorías</a>
+          <ul class="dropdown">
+            <li><a href="#" data-category="all">Todos</a></li>
+            <li><a href="#" data-category="outlet">Outlet</a></li>
+            <li><a href="#" data-category="nueva-temporada">Nueva Temporada</a></li>
+            <li><a href="#" data-category="rebajas">Rebajas</a></li>
+            <li><a href="#" data-category="oferta">Oferta</a></li>
+            <li><a href="#" data-category="normal">Normal</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Contenedor principal -->
+  <main class="container">
+    <div class="product-details">
+      <!-- Flecha para regresar -->
+      <a href="index.html" class="back-arrow">&#8592;</a> <!-- Flecha izquierda (←) -->
+      
+      <img src="" alt="Imagen del producto" class="details-image">
+      <h2 class="details-name"></h2>
+      <p class="details-description"></p>
+      <p class="details-price"></p>
+      <a href="index.html" class="back-button">Volver a la tienda</a>
+    </div>
+  </main>
+
+  <!-- Botón para cambiar tema -->
+  <button class="theme-toggle">Cambiar Tema</button>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 MiTienda. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    // Obtener los parámetros de la URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get('id');
+    const name = decodeURIComponent(urlParams.get('name'));
+    const description = decodeURIComponent(urlParams.get('description'));
+    const price = urlParams.get('price');
+    const image = decodeURIComponent(urlParams.get('image'));
+
+    // Mostrar los detalles del producto
+    document.querySelector('.details-image').src = image;
+    document.querySelector('.details-name').textContent = name;
+    document.querySelector('.details-description').textContent = description;
+    document.querySelector('.details-price').textContent = `€${parseFloat(price).toFixed(2)}`;
+
+    // Cambiar tema
+    document.querySelector('.theme-toggle').addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+@mixin card-base {
+  width: $card-width;
+  height: $card-height;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+@mixin button-base {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+}
